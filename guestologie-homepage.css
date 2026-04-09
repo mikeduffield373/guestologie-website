@@ -10,7 +10,7 @@
   --warm-white: #F7F7F5;
   --white: #FFFFFF;
   --slate: #666666;
-  --ink: #1A1A1A;
+  --ink: #0D0F14;
   --card-bg: #F0F0EE;
 }
 
@@ -566,7 +566,7 @@ body.scrolled .nav-pill {
 
 /* ── SECTION 3: HOW IT WORKS ── */
 .how-it-works-wrapper {
-  background: var(--charcoal);
+  background: var(--ink);
   width: 100%;
 }
 
@@ -919,7 +919,7 @@ body.scrolled .nav-pill {
 
 /* ── SECTION 7: INTEGRATION & SPEED ── */
 .integrations-wrapper {
-  background: radial-gradient(ellipse at 50% 40%, #1a1d26 0%, #0D0F14 70%) !important;
+  background: var(--ink);
   width: 100vw;
   margin-left: calc(-50vw + 50%);
   position: relative;
@@ -1033,7 +1033,7 @@ body.scrolled .nav-pill {
 
 /* ── SECTION 8: CTA BLOCK ── */
 .cta-block-wrapper {
-  background: var(--charcoal);
+  background: var(--warm-white);
   width: 100%;
 }
 
@@ -1045,7 +1045,7 @@ body.scrolled .nav-pill {
 }
 
 .cta-block .section-headline {
-  color: var(--white);
+  color: var(--charcoal);
   font-size: 46px;
   margin-bottom: 24px;
 }
@@ -1055,7 +1055,7 @@ body.scrolled .nav-pill {
   font-weight: 400;
   font-size: 17px;
   line-height: 1.7;
-  color: rgba(255, 255, 255, 0.7);
+  color: var(--slate);
   max-width: 600px;
   margin: 0 auto 40px;
 }
@@ -1113,7 +1113,6 @@ body.scrolled .nav-pill {
   .logo-strip { gap: 32px 40px; }
   .cta-block { padding: 80px 40px; }
   .cta-block .section-headline { font-size: 38px; }
-  .about-section { padding: 80px 40px; }
 }
 
 @media (max-width: 768px) {
@@ -1158,88 +1157,78 @@ body.scrolled .nav-pill {
 
 /* ── ABOUT SECTION ── */
 .about-section {
-  background: var(--ink);
+  background: var(--warm-white);
   width: 100%;
   padding: 120px 48px;
   position: relative;
 }
 
-.about-section::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  height: 120px;
-  background: linear-gradient(to bottom, #0D0F14, var(--ink));
-  pointer-events: none;
-}
-
 .about-inner {
-  max-width: 1200px;
+  max-width: 1100px;
   margin: 0 auto;
   position: relative;
 }
 
 .about-header {
   text-align: center;
-  margin-bottom: 64px;
+  margin-bottom: 56px;
 }
 
 .about-eyebrow {
   font-family: 'Inter', sans-serif;
   font-weight: 500;
-  font-size: 13px;
-  letter-spacing: 0.04em;
-  color: rgba(255, 255, 255, 0.5);
-  margin-bottom: 24px;
+  font-size: 12px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--slate);
+  margin-bottom: 16px;
 }
 
 .about-header h2 {
   font-family: 'DM Sans', sans-serif;
   font-weight: 700;
-  font-size: 48px;
+  font-size: 40px;
   line-height: 1.1;
   letter-spacing: -0.025em;
-  color: var(--white);
-  margin-bottom: 16px;
+  color: var(--charcoal);
+  margin-bottom: 12px;
 }
 
 .about-header p:not(.about-eyebrow) {
   font-family: 'Inter', sans-serif;
-  font-size: 17px;
+  font-size: 16px;
   line-height: 1.65;
-  color: rgba(255, 255, 255, 0.6);
-  max-width: 600px;
+  color: var(--slate);
+  max-width: 520px;
   margin: 0 auto;
 }
 
 /* Photo placeholders */
 .about-photo {
-  background: #2a2a2e;
-  border-radius: 16px;
+  background: var(--charcoal);
+  border-radius: 14px;
   display: flex;
   align-items: center;
   justify-content: center;
   flex-shrink: 0;
   aspect-ratio: 3 / 4;
-  box-shadow: 0 8px 40px rgba(0, 0, 0, 0.3);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.12);
 }
 
 .about-photo .about-initials {
   font-family: 'DM Sans', sans-serif;
   font-weight: 700;
-  color: rgba(255, 255, 255, 0.08);
+  color: rgba(255, 255, 255, 0.15);
   user-select: none;
 }
 
 /* Bio cards */
 .about-card {
-  background: #0F1117;
-  border-radius: 16px;
-  box-shadow: 0 8px 40px rgba(0, 0, 0, 0.3);
-  border: 1px solid rgba(255, 255, 255, 0.06);
-  padding: 32px;
+  background: var(--white);
+  border-radius: 14px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.06), 0 8px 24px rgba(0,0,0,0.07);
+  border: 1px solid rgba(0, 0, 0, 0.06);
+  padding: 24px 28px;
   position: relative;
   z-index: 1;
 }
@@ -1247,68 +1236,68 @@ body.scrolled .nav-pill {
 .about-role {
   font-family: 'Inter', sans-serif;
   font-weight: 600;
-  font-size: 11px;
-  letter-spacing: 0.12em;
+  font-size: 10px;
+  letter-spacing: 0.1em;
   text-transform: uppercase;
   color: var(--teal);
-  margin-bottom: 8px;
+  margin-bottom: 6px;
 }
 
 .about-name {
   font-family: 'DM Sans', sans-serif;
   font-weight: 700;
-  font-size: 20px;
-  color: var(--white);
-  margin-bottom: 4px;
+  font-size: 17px;
+  color: var(--charcoal);
+  margin-bottom: 3px;
 }
 
 .about-tag {
   font-family: 'Inter', sans-serif;
   font-style: italic;
-  font-size: 13px;
-  color: rgba(255, 255, 255, 0.4);
-  margin-bottom: 16px;
+  font-size: 12px;
+  color: rgba(0, 0, 0, 0.4);
+  margin-bottom: 12px;
 }
 
 .about-bio {
   font-family: 'Inter', sans-serif;
-  font-size: 15px;
-  line-height: 1.7;
-  color: rgba(255, 255, 255, 0.7);
+  font-size: 13px;
+  line-height: 1.65;
+  color: var(--slate);
 }
 
 /* Featured row — Ryan */
 .about-featured {
   display: flex;
   align-items: center;
-  max-width: 1000px;
-  margin: 0 auto 56px;
+  max-width: 860px;
+  margin: 0 auto 40px;
 }
 
 .about-featured .about-photo {
-  width: 340px;
-  min-height: 450px;
+  width: 220px;
+  min-height: 293px;
 }
 
 .about-featured .about-photo .about-initials {
-  font-size: 72px;
+  font-size: 52px;
 }
 
 .about-featured .about-card {
-  margin-left: -40px;
-  padding: 40px;
+  margin-left: -28px;
+  padding: 28px 32px;
   flex: 1;
 }
 
 .about-featured .about-name {
-  font-size: 24px;
+  font-size: 20px;
 }
 
 /* Team grid — 2x2 */
 .about-grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 40px;
+  gap: 28px;
 }
 
 .about-member {
@@ -1317,66 +1306,62 @@ body.scrolled .nav-pill {
 }
 
 .about-member .about-photo {
-  width: 200px;
-  min-height: 267px;
+  width: 130px;
+  min-height: 173px;
 }
 
 .about-member .about-photo .about-initials {
-  font-size: 48px;
+  font-size: 32px;
 }
 
 .about-member .about-card {
-  margin-left: -40px;
+  margin-left: -24px;
   flex: 1;
 }
 
 /* Responsive */
 @media (max-width: 1024px) {
-  .about-featured .about-photo { width: 280px; min-height: 373px; }
-  .about-member .about-photo { width: 170px; min-height: 227px; }
-  .about-grid { gap: 32px; }
+  .about-section { padding: 80px 40px; }
+  .about-featured .about-photo { width: 190px; min-height: 253px; }
+  .about-member .about-photo { width: 110px; min-height: 147px; }
+  .about-grid { gap: 20px; }
 }
 
 @media (max-width: 768px) {
   .about-section { padding: 60px 20px; }
-  .about-header h2 { font-size: 36px; }
+  .about-header h2 { font-size: 32px; }
 
   .about-featured {
     flex-direction: column;
     align-items: stretch;
+    max-width: 100%;
   }
   .about-featured .about-photo {
     width: 100%;
-    min-height: 300px;
+    min-height: 200px;
     aspect-ratio: 4 / 3;
   }
   .about-featured .about-card {
     margin-left: 0;
-    margin-top: -24px;
+    margin-top: -20px;
   }
 
-  .about-grid {
-    grid-template-columns: 1fr;
-    gap: 40px;
-  }
-  .about-member {
-    flex-direction: column;
-    align-items: stretch;
-  }
+  .about-grid { grid-template-columns: 1fr; gap: 24px; }
+  .about-member { flex-direction: column; align-items: stretch; }
   .about-member .about-photo {
     width: 100%;
-    min-height: 240px;
+    min-height: 160px;
     aspect-ratio: 4 / 3;
   }
   .about-member .about-card {
     margin-left: 0;
-    margin-top: -24px;
+    margin-top: -20px;
   }
 }
 
 /* ── FOOTER ── */
 .site-footer {
-  background: #0D0F14;
+  background: var(--ink);
   width: 100%;
 }
 
