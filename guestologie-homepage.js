@@ -1,22 +1,38 @@
 window.addEventListener('scroll', function() {
   document.body.classList.toggle('scrolled', window.scrollY > 80);
 
-  // Scroll spy for nav active state
-  var navLinks = document.querySelectorAll('.nav-link');
-  var sections = [];
+  // Scroll spy — uses getBoundingClientRect for accurate position regardless of nesting
+  var navLinks = document.querySelectorAll('.nav-links .nav-link');
+
+  // Map id → nav link
+  var linkMap = {};
   navLinks.forEach(function(link) {
-    var id = link.getAttribute('href').replace('#', '');
-    var el = document.getElementById(id);
-    if (el) sections.push({ el: el, link: link });
+    var href = link.getAttribute('href');
+    if (href && href !== '#') linkMap[href.replace('#', '')] = link;
   });
 
-  var scrollPos = window.scrollY + 200;
-  var activeLink = null;
-  sections.forEach(function(s) {
-    if (s.el.offsetTop <= scrollPos) {
-      activeLink = s.link;
-    }
+  // Get absolute page position using getBoundingClientRect + scrollY
+  function getPageTop(el) {
+    return el.getBoundingClientRect().top + window.scrollY;
+  }
+
+  // Build sections sorted by true page position
+  var sections = [];
+  Object.keys(linkMap).forEach(function(id) {
+    var el = document.getElementById(id);
+    if (el) sections.push({ id: id, el: el, link: linkMap[id], top: getPageTop(el) });
   });
+  sections.sort(function(a, b) { return a.top - b.top; });
+
+  // Activate last section whose top is above 45% of the viewport
+  var threshold = window.scrollY + window.innerHeight * 0.45;
+  var activeLink = null;
+
+  if (window.scrollY > 80) {
+    sections.forEach(function(s) {
+      if (s.top <= threshold) activeLink = s.link;
+    });
+  }
 
   navLinks.forEach(function(link) { link.classList.remove('active'); });
   if (activeLink) activeLink.classList.add('active');
