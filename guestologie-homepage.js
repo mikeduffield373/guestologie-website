@@ -52,6 +52,7 @@ window.addEventListener('scroll', function() {
   var actionItems = card.querySelectorAll('.action-item');
   var actionBadge = card.querySelector('.action-badge');
   var guestStatus = card.querySelector('.guest-status');
+  var actionBadgeCheck = document.getElementById('actionBadgeCheck');
 
   var STEP_DURATION = 2500;
   var PAUSE_BETWEEN_CYCLES = 3000;
@@ -67,8 +68,33 @@ window.addEventListener('scroll', function() {
       item.querySelector('.action-checkbox').classList.remove('completed');
     });
     actionBadge.textContent = '4';
+    actionBadge.style.visibility = 'visible';
+    actionBadge.classList.remove('hide');
+    actionBadgeCheck.classList.remove('show', 'draw', 'hide');
+    actionBadge.style.opacity = '0';
+    actionBadge.style.transform = 'scale(0.6)';
     guestStatus.textContent = 'Arriving';
     guestStatus.style.color = '';
+  }
+
+  function celebrate() {
+    // Fade out and fully hide the counter
+    actionBadge.classList.add('hide');
+    setTimeout(function() {
+      actionBadge.textContent = '';
+      actionBadge.style.visibility = 'hidden';
+    }, 400);
+
+    // Show checkmark after counter is fully gone
+    setTimeout(function() {
+      actionBadgeCheck.classList.add('show');
+      setTimeout(function() {
+        actionBadgeCheck.classList.add('draw');
+        setTimeout(function() {
+          actionBadgeCheck.classList.add('hide');
+        }, 900);
+      }, 50);
+    }, 450);
   }
 
   function runCycle() {
@@ -98,6 +124,11 @@ window.addEventListener('scroll', function() {
       actionItems.forEach(function(item, i) {
         setTimeout(function() { item.classList.add('visible'); }, i * 150);
       });
+      setTimeout(function() {
+        actionBadge.style.transition = 'opacity 300ms ease, transform 300ms ease';
+        actionBadge.style.opacity = '1';
+        actionBadge.style.transform = 'scale(1)';
+      }, actionItems.length * 150 + 100);
     }, STEP_DURATION * 2);
 
     // Step 4: Floor Executes
@@ -129,13 +160,11 @@ window.addEventListener('scroll', function() {
         actionBadge.textContent = '0';
         guestStatus.textContent = 'Seated';
         guestStatus.style.color = '#52B788';
+
+        // Transition counter to drawn checkmark
+        celebrate();
       }, 1500);
     }, STEP_DURATION * 3);
-
-    // Amber pulse on manager visit action after card completes
-    setTimeout(function() {
-      actionItems[2].classList.add('amber-pulse');
-    }, STEP_DURATION * 3 + 2000);
 
     // Hold for pause, then restart
     var cycleLength = STEP_DURATION * 3 + 2500 + PAUSE_BETWEEN_CYCLES;
