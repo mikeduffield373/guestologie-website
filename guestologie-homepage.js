@@ -52,7 +52,8 @@ window.addEventListener('scroll', function() {
   var actionItems = card.querySelectorAll('.action-item');
   var actionBadge = card.querySelector('.action-badge');
   var guestStatus = card.querySelector('.guest-status');
-  var actionBadgeCheck = document.getElementById('actionBadgeCheck');
+  var actionBadgeCount = actionBadge.querySelector('.action-badge-count');
+  var actionBadgeCheckSvg = actionBadge.querySelector('.action-badge-check');
 
   var STEP_DURATION = 2500;
   var PAUSE_BETWEEN_CYCLES = 3000;
@@ -64,37 +65,34 @@ window.addEventListener('scroll', function() {
     trendIndicator.classList.remove('visible');
     contextSpans.forEach(function(s) { s.classList.remove('visible'); });
     actionItems.forEach(function(item) {
-      item.classList.remove('visible', 'completed', 'amber-pulse');
+      item.classList.remove('visible', 'completed');
       item.querySelector('.action-checkbox').classList.remove('completed');
     });
-    actionBadge.textContent = '4';
-    actionBadge.style.visibility = 'visible';
-    actionBadge.classList.remove('hide');
-    actionBadgeCheck.classList.remove('show', 'draw', 'hide');
+    // Reset badge — hidden until Step 3
+    actionBadge.style.transition = 'none';
     actionBadge.style.opacity = '0';
     actionBadge.style.transform = 'scale(0.6)';
+    actionBadge.classList.remove('hide');
+    actionBadgeCount.textContent = '4';
+    actionBadgeCount.classList.remove('hidden');
+    actionBadgeCheckSvg.classList.remove('draw');
     guestStatus.textContent = 'Arriving';
     guestStatus.style.color = '';
   }
 
   function celebrate() {
-    // Fade out and fully hide the counter
-    actionBadge.classList.add('hide');
-    setTimeout(function() {
-      actionBadge.textContent = '';
-      actionBadge.style.visibility = 'hidden';
-    }, 400);
+    // Fade out the number
+    actionBadgeCount.classList.add('hidden');
 
-    // Show checkmark after counter is fully gone
+    // Draw the checkmark in its place
     setTimeout(function() {
-      actionBadgeCheck.classList.add('show');
+      actionBadgeCheckSvg.classList.add('draw');
+
+      // Hold, then fade the whole circle out
       setTimeout(function() {
-        actionBadgeCheck.classList.add('draw');
-        setTimeout(function() {
-          actionBadgeCheck.classList.add('hide');
-        }, 900);
-      }, 50);
-    }, 450);
+        actionBadge.classList.add('hide');
+      }, 1200);
+    }, 250);
   }
 
   function runCycle() {
@@ -117,13 +115,14 @@ window.addEventListener('scroll', function() {
       });
     }, STEP_DURATION);
 
-    // Step 3: Playbook Generated
+    // Step 3: Playbook Generated — badge hidden, reveals after last action item appears
     setTimeout(function() {
       steps[1].classList.remove('active');
       steps[2].classList.add('active');
       actionItems.forEach(function(item, i) {
         setTimeout(function() { item.classList.add('visible'); }, i * 150);
       });
+      // Badge fades in after last action item appears
       setTimeout(function() {
         actionBadge.style.transition = 'opacity 300ms ease, transform 300ms ease';
         actionBadge.style.opacity = '1';
@@ -131,7 +130,7 @@ window.addEventListener('scroll', function() {
       }, actionItems.length * 150 + 100);
     }, STEP_DURATION * 2);
 
-    // Step 4: Floor Executes
+    // Step 4: Floor Executes — actions check off, counter counts down, then celebrate
     setTimeout(function() {
       steps[2].classList.remove('active');
       steps[3].classList.add('active');
@@ -139,31 +138,30 @@ window.addEventListener('scroll', function() {
       setTimeout(function() {
         actionItems[0].classList.add('completed');
         actionItems[0].querySelector('.action-checkbox').classList.add('completed');
-        actionBadge.textContent = '3';
+        actionBadgeCount.textContent = '3';
       }, 300);
 
       setTimeout(function() {
         actionItems[1].classList.add('completed');
         actionItems[1].querySelector('.action-checkbox').classList.add('completed');
-        actionBadge.textContent = '2';
+        actionBadgeCount.textContent = '2';
       }, 700);
 
       setTimeout(function() {
         actionItems[2].classList.add('completed');
         actionItems[2].querySelector('.action-checkbox').classList.add('completed');
-        actionBadge.textContent = '1';
+        actionBadgeCount.textContent = '1';
       }, 1100);
 
       setTimeout(function() {
         actionItems[3].classList.add('completed');
         actionItems[3].querySelector('.action-checkbox').classList.add('completed');
-        actionBadge.textContent = '0';
+        actionBadgeCount.textContent = '0';
         guestStatus.textContent = 'Seated';
         guestStatus.style.color = '#52B788';
-
-        // Transition counter to drawn checkmark
-        celebrate();
+        setTimeout(celebrate, 400);
       }, 1500);
+
     }, STEP_DURATION * 3);
 
     // Hold for pause, then restart
