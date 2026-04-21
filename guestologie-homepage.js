@@ -73,7 +73,7 @@ window.addEventListener('scroll', function() {
     actionBadge.style.opacity = '0';
     actionBadge.style.transform = 'scale(0.6)';
     actionBadge.classList.remove('hide');
-    actionBadgeCount.textContent = '4';
+    actionBadgeCount.textContent = '3';
     actionBadgeCount.classList.remove('hidden');
     actionBadgeCheckSvg.classList.remove('draw');
     guestStatus.textContent = 'Arriving';
@@ -138,29 +138,23 @@ window.addEventListener('scroll', function() {
       setTimeout(function() {
         actionItems[0].classList.add('completed');
         actionItems[0].querySelector('.action-checkbox').classList.add('completed');
-        actionBadgeCount.textContent = '3';
+        actionBadgeCount.textContent = '2';
       }, 300);
 
       setTimeout(function() {
         actionItems[1].classList.add('completed');
         actionItems[1].querySelector('.action-checkbox').classList.add('completed');
-        actionBadgeCount.textContent = '2';
-      }, 700);
+        actionBadgeCount.textContent = '1';
+      }, 800);
 
       setTimeout(function() {
         actionItems[2].classList.add('completed');
         actionItems[2].querySelector('.action-checkbox').classList.add('completed');
-        actionBadgeCount.textContent = '1';
-      }, 1100);
-
-      setTimeout(function() {
-        actionItems[3].classList.add('completed');
-        actionItems[3].querySelector('.action-checkbox').classList.add('completed');
         actionBadgeCount.textContent = '0';
         guestStatus.textContent = 'Seated';
         guestStatus.style.color = '#52B788';
         setTimeout(celebrate, 400);
-      }, 1500);
+      }, 1300);
 
     }, STEP_DURATION * 3);
 
