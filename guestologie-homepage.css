@@ -1624,9 +1624,13 @@ body.scrolled .nav-unified {
 
 .seg-subhead {
   font-family: 'Inter', sans-serif;
-  font-size: 15px;
-  color: rgba(255,255,255,0.4);
-  margin-bottom: 24px;
+  font-weight: 400;
+  font-size: 17px;
+  line-height: 1.65;
+  color: rgba(255, 255, 255, 0.7);
+  max-width: 780px;
+  margin: 0 auto 24px;
+  text-align: center;
 }
 
 .seg-guest-name {
