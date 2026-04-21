@@ -100,7 +100,7 @@
   </a>
   <div class="nav-divider"></div>
   <ul class="nav-links">
-    <li><a href="#how-it-works" class="nav-link">How It Works</a></li>
+    <li><a href="#segmentation" class="nav-link">How It Works</a></li>
     <li><a href="#smart-comp" class="nav-link">Results</a></li>
     <li><a href="#integrations" class="nav-link">Integrations</a></li>
     <li><a href="#about" class="nav-link">About</a></li>
@@ -222,12 +222,70 @@
   </div>
 </div>
 
+<!-- SECTION: DUAL-SIGNAL INTELLIGENCE -->
+<div class="segmentation-wrapper" id="segmentation">
+  <div class="segmentation-inner">
+
+    <div class="seg-header">
+      <p class="seg-eyebrow">Guest Identified · Playbook Created</p>
+      <h2 class="seg-headline">Two signals. One service goal.</h2>
+      <p class="seg-subhead">The moment they walk through the door.</p>
+      <p class="seg-guest-name"><span class="seg-guest-label">Guest:</span> <span id="segGuestName"></span></p>
+    </div>
+
+    <div class="seg-main-row">
+
+      <div class="seg-panel" id="segPanelLeft">
+        <p class="seg-panel-heading">Guest Segment Calculated</p>
+        <div class="seg-wheel-wrap">
+          <div class="seg-wheel-gradient seg-wheel-gradient-top"></div>
+          <div class="seg-wheel-highlight"></div>
+          <div class="seg-wheel" id="segTierWheel"></div>
+          <div class="seg-wheel-gradient seg-wheel-gradient-bottom"></div>
+        </div>
+      </div>
+
+      <div class="seg-dots-col">
+        <div class="seg-step-dot" id="segDot1"></div>
+        <div class="seg-connector" id="segConn1"></div>
+        <div class="seg-step-dot" id="segDot2"></div>
+        <div class="seg-connector" id="segConn2"></div>
+        <div class="seg-step-dot" id="segDot3"></div>
+      </div>
+
+      <div class="seg-panel" id="segPanelRight">
+        <p class="seg-panel-heading">Future Trend Predicted</p>
+        <div class="seg-wheel-wrap">
+          <div class="seg-wheel-gradient seg-wheel-gradient-top"></div>
+          <div class="seg-wheel-highlight"></div>
+          <div class="seg-wheel" id="segTrajWheel"></div>
+          <div class="seg-wheel-gradient seg-wheel-gradient-bottom"></div>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="seg-goal-bar" id="segGoalBar">
+      <span class="seg-goal-label">SERVICE GOAL</span>
+      <span class="seg-goal-text" id="segGoalText"></span>
+    </div>
+
+    <div class="seg-carousel" id="segCarousel"></div>
+
+    <div class="seg-flow-line">
+      <div class="seg-flow-line-track"></div>
+      <div class="seg-flow-line-pulse"></div>
+    </div>
+
+  </div>
+</div>
+
 <!-- SECTION 3: HOW IT WORKS -->
 <div class="how-it-works-wrapper">
 <section class="how-it-works" id="how-it-works">
-  <p class="section-label">On the floor</p>
-  <h2 class="section-headline">We make the invisible, visible.</h2>
-  <p class="section-subhead">Your best manager runs the floor on instinct, reading every guest, knowing who to prioritize, never missing a moment. <strong>Yet despite this, hundreds of opportunities go unseen.</strong> Guestologie turns up the art of personalized service, orchestrating the perfect experience for each individual guest, making each server, your best server.</p>
+  <p class="section-label">Orchestrated Execution</p>
+  <h2 class="section-headline">Every role. One playbook.</h2>
+  <p class="section-subhead">The service goal flows to every role on the floor. Your host sees it before the guest arrives. Your server sees it at the table. Your manager sees it across the room. No one misses a beat.</p>
 
   <div class="roles-grid">
 
@@ -235,7 +293,7 @@
     <div class="role-card">
       <div class="role-card-content">
         <h3 class="role-title">Host</h3>
-        <p class="role-body">Know who's walking in before they reach the door. Their tier, their preferences, whether they should be moved to the top of the list. Your host arrives at every interaction already prepared.</p>
+        <p class="role-body">Before the guest reaches the door, the host already knows their tier, their trajectory, and the service goal. High-potential prospect? Top of the list. At-risk elite? Manager notified. Every arrival is already prepared.</p>
       </div>
       <div class="role-visual">
         <!-- Arrival queue UI mockup -->
@@ -282,7 +340,7 @@
     <div class="role-card">
       <div class="role-card-content">
         <h3 class="role-title">Server</h3>
-        <p class="role-body">Every server knows which guests are in their section, what they care about, and exactly what to do, so every guest feels special, with a personalized experience catered to their unique needs.</p>
+        <p class="role-body">The service goal translates into specific actions at the table — what to mention, what to comp, when to check in. Every server delivers a personalized experience without guessing.</p>
       </div>
       <div class="role-visual">
         <!-- Section action list UI mockup -->
@@ -322,7 +380,7 @@
     <div class="role-card">
       <div class="role-card-content">
         <h3 class="role-title">Manager</h3>
-        <p class="role-body">See across your entire dining room at a glance. Guestologie focuses your attention where it matters most, so when priorities compete and time is short, you always know exactly where to step in.</p>
+        <p class="role-body">One view across the entire dining room. Which tables need attention, which guests are high-priority, where the service goal hasn't been executed yet. Focus goes where it matters most.</p>
       </div>
       <div class="role-visual">
         <svg viewBox="0 0 360 210" xmlns="http://www.w3.org/2000/svg" class="role-ui-svg" role="img" aria-label="Manager dashboard showing attention needed alert for a notable guest, with pending action counts for manager, host, and servers Meghan and Scott">
